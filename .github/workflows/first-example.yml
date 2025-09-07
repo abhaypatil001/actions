@@ -9,8 +9,10 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v5
             - name: Welcome Message 
-              run: echo "This is my first workfolow"
-            - name: List the files
-              run: ls
-            - name: Read the file
-              run: cat README.md
+              run: |
+                echo "This is my first workfolow"
+                ls -ltra
+                cat README.md
+                
+            - name: Generate ASCII Artwork
+              run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
