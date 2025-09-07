@@ -25,7 +25,7 @@ jobs:
             - name: Download Artifacts
               uses: actions/download-artifact@v4
               with:
-                name: Dragon file name
+                name: Dragon file
                 path: dragon.txt
 
             - name: Verify the Articats
