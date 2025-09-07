@@ -40,7 +40,7 @@ jobs:
               uses: actions/download-artifact@v4
               with:
                 name: Dragon file
-                path: dragon.txt
+                path: .
 
             - name: Read File
               run: |
