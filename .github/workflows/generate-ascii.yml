@@ -3,16 +3,45 @@ name: Generate ASCII Artwork
 on: push
 
 jobs:
-    ascii_job:
+    Build_job:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout Repo
-              uses: actions/checkout@v5
-            - name: List Repo files
+            - name: Install Cowsay Program
+              run: sudo apt-get install cowsay -y
+        
+            - name: Execute Cowsay CMD
+              run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
+
+            - name: Upload Artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                name: Dragon file
+                path: dragon.txt
+
+    Test_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download Artifacts
+              uses: actions/download-artifact@v4
+              with:
+                name: Dragon file name
+                path: dragon.txt
+
+            - name: Verify the Articats
               run: ls -ltra
-            
-            - name: Execute Shell Script
-              run: |
-                chmod +x ascii.sh
-                ./ascii.sh
+              
+    
+    Deploy_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download Artifacts
+              uses: actions/download-artifact@v4
+              with:
+                name: Dragon file name
+                path: dragon.txt
+
+            - name: Read File
+              run: cat dragon.txt
+
+
             
