@@ -6,6 +6,8 @@ jobs:
     first-job:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout
+              uses: actions/checkout@v5
             - name: Welcome Message 
               run: echo "This is my first workfolow"
             - name: List the files
