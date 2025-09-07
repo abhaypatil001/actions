@@ -19,6 +19,7 @@ jobs:
                 path: dragon.txt
 
     Test_job:
+        needs: Build_job
         runs-on: ubuntu-latest
         steps:
             - name: Download Artifacts
@@ -32,6 +33,7 @@ jobs:
               
     
     Deploy_job:
+        needs: Test_job
         runs-on: ubuntu-latest
         steps:
             - name: Download Artifacts
