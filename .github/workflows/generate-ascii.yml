@@ -45,7 +45,6 @@ jobs:
             - name: Read File
               run: |
                 ls -ltra
-                cd dragon
                 cat dragon.txt
 
 
