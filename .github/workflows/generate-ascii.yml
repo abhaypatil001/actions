@@ -43,7 +43,10 @@ jobs:
                 path: dragon.txt
 
             - name: Read File
-              run: cat dragon.txt
+              run: |
+                ls -ltra
+                cd dragon
+                cat dragon.txt
 
 
             
