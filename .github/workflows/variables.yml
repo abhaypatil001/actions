@@ -15,7 +15,7 @@ jobs:
       env:
         CONTAINER_REGISTRY: docker.io
         DOCKER_USERNAME: abhaypatil001
-        IMAGE_NAME: github-actions-nginx
+        IMAGE_NAME: github-actions-nginx1
       #run: docker build -t docker.io/abhaypatil001/actions:latest
       run: docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest .
     - name: Docker Login
@@ -27,7 +27,7 @@ jobs:
       env:
         CONTAINER_REGISTRY: docker.io
         DOCKER_USERNAME: abhaypatil001
-        IMAGE_NAME: github-actions-nginx
+        IMAGE_NAME: github-actions-nginx1
       run: docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
   deploy:
@@ -38,7 +38,7 @@ jobs:
       env:
         CONTAINER_REGISTRY: docker.io
         DOCKER_USERNAME: abhaypatil001
-        DOCKER_IMAGE_NAME: github-actions-nginx
+        DOCKER_IMAGE_NAME: github-actions-nginx1
         IMAGE_NAME: github-actions-nginx
       run: docker run -d -p 8080:80 --name $IMAGE_NAME $DOCKER_USERNAME/$IMAGE_NAME:latest
 
