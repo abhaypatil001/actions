@@ -7,9 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Docker Build
-      run: docker build -t docker.io/abhaypatil001/actions:latest
+      env:
+        CONTAINER_REGISTRY: docker.io
+        DOCKER_USERNAME: abhaypatil001
+        IMAGE_NAME: github-actions-nginx
+      #run: docker build -t docker.io/abhaypatil001/actions:latest
+      run: docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
     - name: Docker Login
-      run: docker login --username=abhaypatil001 --password=Admin@123
+      env:
+        DOCKER_PASSWORD: Admin@123
+        DOCKER_USERNAME: abhaypatil001
+      run: docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
     - name: Docker Push
       run: docker push docker.io/abhaypatil001/actions:latest
 
@@ -17,6 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Docker Run
-      run: docker run -d -p 8080:80 docker.io/abhaypatil/actions:latest
+      run: docker run -d -p 8080:80 docker.io/abhaypatil001/actions:latest
 
 
