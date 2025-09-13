@@ -24,13 +24,21 @@ jobs:
         DOCKER_USERNAME: abhaypatil001
       run: docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
     - name: Docker Push
-      run: docker push docker.io/abhaypatil001/actions:latest
+      env:
+        CONTAINER_REGISTRY: docker.io
+        DOCKER_USERNAME: abhaypatil001
+        IMAGE_NAME: github-actions-nginx
+      run: docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
   deploy:
     needs: docker-build
     runs-on: ubuntu-latest
     steps:
     - name: Docker Run
-      run: docker run -d -p 8080:80 docker.io/abhaypatil001/actions:latest
+      env:
+        CONTAINER_REGISTRY: docker.io
+        DOCKER_USERNAME: abhaypatil001
+        IMAGE_NAME: github-actions-nginx
+      run: docker run -d -p 8080:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
 
