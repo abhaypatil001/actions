@@ -1,6 +1,6 @@
 name: Explore variables
 
-on: workflow_dispatch
+on: push
 
 jobs:
   docker-build:
@@ -39,6 +39,6 @@ jobs:
         CONTAINER_REGISTRY: docker.io
         DOCKER_USERNAME: abhaypatil001
         IMAGE_NAME: github-actions-nginx
-      run: docker run -d -p 8080:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+      run: docker run -d -p 80:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
 
