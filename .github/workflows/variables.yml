@@ -1,0 +1,22 @@
+name: Explore variables
+
+on: workflow_dispatch
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Docker Build
+      run: docker build -t docker.io/abhaypatil001/actions:latest
+    - name: Docker Login
+      run: docker login --username=abhaypatil001 --password=Admin@123
+    - name: Docker Push
+      run: docker push docker.io/abhaypatil001/actions:latest
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Docker Run
+      run: docker run -d -p 8080:80 docker.io/abhaypatil/actions:latest
+
+
