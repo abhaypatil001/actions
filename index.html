@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GitHub Actions Nginx</title>
+  <title>GitHub Actions + Docker 🚀</title>
   <style>
     body {
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      font-family: "Poppins", Arial, sans-serif;
+      background: linear-gradient(120deg, #1cb5e0, #000851);
       color: #fff;
       text-align: center;
       display: flex;
@@ -17,47 +17,68 @@
       align-items: center;
       height: 100vh;
     }
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      max-width: 700px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      backdrop-filter: blur(12px);
+      animation: fadeIn 1.2s ease-in-out;
+    }
     h1 {
       font-size: 3rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     p {
       font-size: 1.2rem;
+      line-height: 1.6;
       margin-bottom: 2rem;
-      max-width: 600px;
+      color: #e0e0e0;
     }
-    .card {
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 16px;
-      padding: 2rem;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    .highlight {
+      font-weight: bold;
+      color: #00e6ff;
     }
-    .button {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      margin-top: 1rem;
+    .btn {
+      padding: 0.9rem 1.8rem;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #ff512f, #dd2476);
+      color: #fff;
       font-size: 1rem;
       font-weight: bold;
-      color: #4facfe;
-      background: #fff;
-      border-radius: 8px;
       text-decoration: none;
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>🚀 Welcome to GitHub Actions </h1>
-    <p>This container was built and deployed using <strong>GitHub Actions</strong> and <strong>Docker</strong>.  
-       You can customize this page to showcase your CI/CD pipelines or projects.</p>
-    <a href="https://github.com/abhaypatil001" target="_blank" class="button">Visit My GitHub</a>
+  <div class="container">
+    <h1>🚀 Build. Ship. Run.</h1>
+    <p>
+      Congratulations! 🎉 <br>
+      This Nginx container was <span class="highlight">successfully built and deployed</span>  
+      using <strong>GitHub Actions</strong> and <strong>Docker</strong>.  
+    </p>
+    <a href="https://github.com/abhaypatil001" target="_blank" class="btn">View My Projects</a>
+    <footer>Powered by GitHub Actions ✨ Dockerized with ❤️</footer>
   </div>
 </body>
 </html>
