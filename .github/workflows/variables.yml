@@ -3,9 +3,16 @@ name: Explore variables
 on: workflow_dispatch
 
 jobs:
+  checkout: 
+    
   docker-build:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v5
+      with:
+        repository: ${{ github.repository }}
+        
     - name: Docker Build
       env:
         CONTAINER_REGISTRY: docker.io
