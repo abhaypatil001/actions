@@ -38,7 +38,8 @@ jobs:
       env:
         CONTAINER_REGISTRY: docker.io
         DOCKER_USERNAME: abhaypatil001
-        IMAGE_NAME: github-actions-nginx
-      run: docker run -d -p 80:80 $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+        DOCKER_IMAGE_NAME: github-actions-nginx
+        IMAGE_NAME: github-actions-nginx1
+      run: docker run -d -p 8080:80 --name $IMAGE_NAME $DOCKER_USERNAME/$IMAGE_NAME:latest
 
 
