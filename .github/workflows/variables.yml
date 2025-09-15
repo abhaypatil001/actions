@@ -3,9 +3,7 @@ name: Explore variables
 on: push
 env:
         CONTAINER_REGISTRY: docker.io
-        DOCKER_USERNAME: abhaypatil001
         IMAGE_NAME: github-actions-nginx1
-        DOCKER_PASSWORD: Admin@123
 jobs:
   docker-build:
     runs-on: ubuntu-latest
@@ -15,17 +13,17 @@ jobs:
       with:
         repository: ${{ github.repository }}
     - name: Docker Build
-      run: docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest .
+      run: docker build -t $CONTAINER_REGISTRY/${{vars.DOCKER_USERNAME}}/$IMAGE_NAME:latest .
     - name: Docker Login
-      run: docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
+      run: docker login --username=${{vars.DOCKER_USERNAME}} --password=${{secrets.DOCKER_PASSWORD}}
     - name: Docker Push
-      run: docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+      run: docker push $CONTAINER_REGISTRY/${{vars.DOCKER_USERNAME}}/$IMAGE_NAME:latest
 
   deploy:
     needs: docker-build
     runs-on: ubuntu-latest
     steps:
     - name: Docker Run
-      run: docker run -d -p 8080:80 --name $IMAGE_NAME $DOCKER_USERNAME/$IMAGE_NAME:latest
+      run: docker run -d -p 8080:80 --name $IMAGE_NAME ${{vars.DOCKER_USERNAME}}/$IMAGE_NAME:latest
 
 
