@@ -1,15 +1,17 @@
 name: Explore variables
 
 on: push
-
-jobs:
-  docker-build:
-    runs-on: ubuntu-latest
-    env:
+env:
         CONTAINER_REGISTRY: docker.io
         DOCKER_USERNAME: abhaypatil001
         IMAGE_NAME: github-actions-nginx1
         DOCKER_PASSWORD: Admin@123
+        CONTAINER_REGISTRY: docker.io
+        DOCKER_USERNAME: abhaypatil001
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v5
@@ -25,13 +27,8 @@ jobs:
   deploy:
     needs: docker-build
     runs-on: ubuntu-latest
-    env:
-        CONTAINER_REGISTRY: docker.io
-        DOCKER_USERNAME: abhaypatil001
-        DOCKER_IMAGE_NAME: github-actions-nginx1
-        IMAGE_NAME: github-actions-nginx
     steps:
     - name: Docker Run
-      run: docker run -d -p 8080:80 --name $IMAGE_NAME $DOCKER_USERNAME/$DOCKER_IMAGE_NAME:latest
+      run: docker run -d -p 8080:80 --name $IMAGE_NAME $DOCKER_USERNAME/$IMAGE_NAME:latest
 
 
