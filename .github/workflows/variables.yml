@@ -6,9 +6,6 @@ env:
         DOCKER_USERNAME: abhaypatil001
         IMAGE_NAME: github-actions-nginx1
         DOCKER_PASSWORD: Admin@123
-        CONTAINER_REGISTRY: docker.io
-        DOCKER_USERNAME: abhaypatil001
-
 jobs:
   docker-build:
     runs-on: ubuntu-latest
