@@ -6,9 +6,10 @@ on:
         - cron: "*/59 * * * *"
     workflow_call: 
     push: 
+        
     pull_request:
 jobs:
     workflow-hello-with-event-time:
         runs-on: ubuntu-latest
         steps:
-            - run: echo this workflow/job/step is executed for the event type - ${{github.event_name}}
+            - run: echo this workflow/job/step is executed for the event type - ${{github.event_path}}
