@@ -4,10 +4,19 @@ on:
     workflow_dispatch: 
     schedule:
         - cron: "*/59 * * * *"
-    workflow_call: 
-    push: 
-
+    push:
+        branches: 
+            - main
+            - '!feature/*'
     pull_request:
+        types: 
+            - opened
+            - closed
+        paths-ignore: 
+            - README.md
+        branches: 
+            - main
+
 jobs:
     workflow-hello-with-event-time:
         runs-on: ubuntu-latest
