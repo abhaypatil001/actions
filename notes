@@ -1,0 +1,2 @@
+What is contexts ?
+contexts are a way to access information about the workflow runs, variables, runner environments, jobs, and steps. 
