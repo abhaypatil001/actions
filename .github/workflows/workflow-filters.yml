@@ -11,4 +11,4 @@ jobs:
     workflow-hello-with-event-time:
         runs-on: ubuntu-latest
         steps:
-            - run: echo this workflow/job/step is executed for the event type - ${{github.event}}
+            - run: echo this workflow/job/step is executed for the event type - ${{github.event_name}}
