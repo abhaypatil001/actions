@@ -1,8 +1,8 @@
 name: Context testing
 on: push
-
 jobs:
   dump_contexts_to_log:
+    if: ${{ github.ref == 'ref/heads/main'}}
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
@@ -33,3 +33,4 @@ jobs:
         env:
           NEEDS_CONTEXT: ${{toJson(needs)}}
         run: echo $NEEDS_CONTEXT
+        
